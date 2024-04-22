@@ -6,6 +6,9 @@
 .header-content {
   background-color: #333333;
   color: White;
+}
+
+.header-h1 {
   height: 130px;
 }
 
