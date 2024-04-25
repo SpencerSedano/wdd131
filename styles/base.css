@@ -1,0 +1,64 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: Montserrat;
+}
+
+h1 {
+  text-align: center;
+  line-height: 100px;
+  background-color: #cf5c36;
+  color: black;
+  height: 100px;
+}
+
+ul {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #050517;
+  padding: 1rem;
+}
+
+ul li {
+  padding: 1rem;
+  list-style: none;
+}
+
+li a {
+  color: White;
+  text-decoration: none;
+}
+
+li a:hover {
+  text-decoration: underline;
+}
+
+main {
+  display: grid;
+  grid-template-rows: 200px 200px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "main1 main3"
+    "main2 main3";
+  gap: 1rem;
+}
+
+.card {
+  background-color: aquamarine;
+  text-align: center;
+}
+
+#section-1 {
+  grid-area: main1;
+}
+
+#section-2 {
+  grid-area: main2;
+}
+
+#section-3 {
+  grid-area: main3;
+}
