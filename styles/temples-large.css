@@ -1,4 +1,4 @@
-body {
+* {
   font-family: Montserrat;
 }
 
@@ -20,6 +20,10 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  text-decoration: underline;
+}
+
 h1 {
   text-align: center;
 }
@@ -29,6 +33,10 @@ main {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 25px;
   place-items: center;
+}
+
+img {
+  width: 200px;
 }
 
 footer {
