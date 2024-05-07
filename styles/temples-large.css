@@ -35,8 +35,13 @@ main {
   place-items: center;
 }
 
+figure {
+  margin: 1rem;
+}
+
 img {
   width: 200px;
+  height: 224px;
 }
 
 footer {

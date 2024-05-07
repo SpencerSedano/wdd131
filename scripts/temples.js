@@ -25,8 +25,14 @@ function toggleLinks() {
 function addOrRemoveToggleListener() {
   if (window.matchMedia("(max-width: 415px)").matches) {
     templesp.addEventListener("click", toggleLinks);
+    myLinks.forEach((link) => {
+      link.style.display = "none";
+    });
   } else {
     templesp.removeEventListener("click", toggleLinks);
+    myLinks.forEach((link) => {
+      link.style.display = "block";
+    });
   }
 }
 
