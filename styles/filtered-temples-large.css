@@ -1,0 +1,63 @@
+* {
+  font-family: Montserrat;
+}
+
+ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2rem;
+  background-color: #46494c;
+  color: white;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1 {
+  text-align: center;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 25px;
+  place-items: center;
+  padding: 2rem;
+}
+
+.temple-card {
+  text-align: center;
+}
+
+.temple-card img {
+  width: 220px;
+  height: 200px;
+}
+
+figure {
+  margin: 1rem;
+}
+
+img {
+  width: 200px;
+  height: 224px;
+}
+
+footer {
+  background-color: #4c5c68;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  padding: 1rem;
+}
