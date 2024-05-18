@@ -106,7 +106,7 @@ const temples = [
     dedicated: "1980, October, 27",
     area: 107000,
     imageUrl:
-      "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/tokyo-japan/400x250/tokyo-japan-temple-lds-968002-wallpaper.jpg",
+      "https://churchofjesuschrist.org/imgs/df6b96801c9f11ec99eeeeeeac1ea2207e7c517b/full/250%2C/0/default",
   },
   {
     templeName: "Sydney Australia",
@@ -114,7 +114,7 @@ const temples = [
     dedicated: "1984, September, 20",
     area: 30000,
     imageUrl:
-      "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/sydney-australia/400x250/sydney-australia-temple-lds-585274-wallpaper.jpg",
+      "https://churchofjesuschrist.org/imgs/8dd109cda45dda79ebe30b0461d5d0afba41f653/full/320%2C/0/default",
   },
   {
     templeName: "Paris France",
@@ -122,12 +122,11 @@ const temples = [
     dedicated: "2017, May, 21",
     area: 44000,
     imageUrl:
-      "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/paris-france/400x250/paris-france-temple-lds-795045-wallpaper.jpg",
+      "https://www.churchofjesuschrist.org/imgs/5ec026c4efeaaa19a98e40f0f1b4c6069ae63517/full/320%2C/0/default",
   },
 ];
 
-// Loop through the array and create temple cards
-temples.forEach((temple) => {
+function createTempleCard(temple) {
   const templeCard = document.createElement("div");
   templeCard.classList.add("temple-card");
 
@@ -154,5 +153,53 @@ temples.forEach((temple) => {
   templeCard.appendChild(area);
   templeCard.appendChild(image);
 
-  mainElement.appendChild(templeCard);
+  return templeCard;
+}
+
+function displayTemples(filter) {
+  mainElement.innerHTML = "";
+  let filteredTemples = [];
+
+  switch (filter) {
+    case "old":
+      filteredTemples = temples.filter(
+        (temple) => new Date(temple.dedicated).getFullYear() <= 2000
+      );
+      break;
+    case "new":
+      filteredTemples = temples.filter(
+        (temple) => new Date(temple.dedicated).getFullYear() > 2000
+      );
+      break;
+    case "large":
+      filteredTemples = temples.filter((temple) => temple.area > 50000);
+      break;
+    case "small":
+      filteredTemples = temples.filter((temple) => temple.area <= 50000);
+      break;
+    default:
+      filteredTemples = temples;
+      break;
+  }
+
+  filteredTemples.forEach((temple) => {
+    const templeCard = createTempleCard(temple);
+    mainElement.appendChild(templeCard);
+  });
+}
+
+document.querySelectorAll(".myLinks a").forEach((link) => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    const filter = link.getAttribute("data-filter");
+
+    document
+      .querySelectorAll(".myLinks a")
+      .forEach((link) => link.classList.remove("active"));
+    link.classList.add("active");
+
+    displayTemples(filter);
+  });
 });
+
+displayTemples("all");
